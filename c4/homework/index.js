@@ -63,52 +63,53 @@ const fileAccess = (path, mode) => {
             if(err) {
                 return fail(err)
             }
-            return success
+            return success()
         });
     });
 };
 
-fileAccess('Nodejs/c4/homework/newFile.txt', fs.access.R_OK | fs.access.W_OK)
+fileAccess('newFile.txt', fs.access.R_OK | fs.access.W_OK)
     .then (() => {
-        console.log('The caller is allowed to read and write');
+        console.log('Vezba 3: The caller is allowed to read and write');
     }) .catch(err => {
-        console.log('The caller cannot read or write');
+        console.log('Vezba 3: The caller cannot read or write');
     });
 
 (async() => {
     try {
-        await fileAccess(Nodejs/c4/homework/newFile.txt, fs.access.R_OK | fs.access.W_OK);
-        console.log('The file can be accessed (read&write)');
+        await fileAccess('newFile.txt', fs.access.R_OK | fs.access.W_OK);
+        console.log('Vezba 3: The file can be accessed (read&write)');
     } catch (err) {
-        console.log('The file cannot be accessed');
+        console.log(err)
+        console.log('Vezba 3: The file cannot be accessed');
     }
 })();
 
 //CETVRTA VEZBA (fs.open)
 const openAFile = (path, flags) => {
     return new Promise((success, fail) => {
-        fs.open('Nodejs/c4/homework/newFileOne.txt', 'r+', (err, fd) => {
+        fs.open('newFileOne.txt', 'r+', (err, fd) => {
             if(err) {
                 return fail(err, fd)
             }
-            return success
+            return success()
         });
     });
 };
 
-openAFile('Nodejs/c4/homework/newFileOne.txt', 'r+')
+openAFile('newFileOne.txt', 'r+')
     .then(() => {
-        console.log('I can open this file for reading and writing');
+        console.log('Vezba 4: I can open this file for reading and writing');
     }) .catch (err => {
-        console.log('I cannot open this file')
+        console.log('Vezba 4: I cannot open this file')
     });
 
 (async() => {
     try {
-        await openAFile('Nodejs/c4/homework/newFileOne.txt', 'r+');
-        console.log('read/write is acceptable');
+        await openAFile('newFileOne.txt', 'r+');
+        console.log('Vezba 4: read/write is acceptable');
     } catch (err) {
-        console.log('read/write - not acceptable')
+        console.log('Vezba 4: read/write - not acceptable')
     };
 })();
 
@@ -120,23 +121,23 @@ const readADirectory = (path) => {
             if (err) {
                 return fail (err, files)
             }
-            return success
+            return success()
         });
     });
 };
 
-readADirectory('Nodejs/c4/homework')
+readADirectory('../homework')
     .then(() => {
-        console.log('can read the directory')
+        console.log('vezba 5: can read the directory')
     }).catch(err => {
-        console.log('cannot read the directory')
+        console.log('vezba 5: cannot read the directory')
     });
 
 (async () => {
     try {
-        await readADirectory(Nodejs/c4/homework);
-        console.log('readible directory');
+        await readADirectory('../homework');
+        console.log('Vezba 5: readible directory');
     } catch (err) {
-        console.log('not a readible directory');
+        console.log('Vezba 5: not a readible directory');
     };
 })();
