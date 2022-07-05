@@ -1,16 +1,16 @@
 {
-  "name": "c6",
+  "name": "c7",
   "version": "1.0.0",
   "description": "",
-  "main": "client.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server_homework.js"
+    "start": "node index_homework.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^3.2.6"
+    "node-modules": "^1.0.1"
   }
 }

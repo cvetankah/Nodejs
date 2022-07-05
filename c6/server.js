@@ -1,14 +1,14 @@
-const http = require('http');
+// const http = require('http');
 
-const server = http.createServer((req, res) => {
-    console.log('server test');
-    // console.log(req);
-    console.log(req.url);
-    console.log(req.method);
-    res.end('здраво од серверот!'); // испрати одговор и затвори го повикот
-});
+// const server = http.createServer((req, res) => {
+//     console.log('server test');
+//     // console.log(req);
+//     console.log(req.url);
+//     console.log(req.method);
+//     res.end('здраво од серверот!'); // испрати одговор и затвори го повикот
+// });
 
-server.listen(10000);
+// server.listen(10000);
 
 /*
 192.168.1.20 - IP address (Internet Protocol Address)

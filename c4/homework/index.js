@@ -28,7 +28,7 @@ fileAppend('newFile.txt', 'tekstot sto treba da go vnesam')
     }
 }) ();
 
-//VTORA VEZBA(fs.rename)
+//VTORA VEZBA(fs.renameOrlando)
 const renameFile = (oldPath, newPath) => {
     return new Promise ((success, fail) => {
         fs.rename(oldPath, newPath, (err) => {
@@ -119,16 +119,16 @@ const readADirectory = (path) => {
     return new Promise((success, fail) => {
         fs.readdir(path, (err, files) => {
             if (err) {
-                return fail (err, files)
+                return fail (err)
             }
-            return success()
+            return success(files)
         });
     });
 };
 
 readADirectory('../homework')
-    .then(() => {
-        console.log('vezba 5: can read the directory')
+    .then((files) => {
+        console.log('Vezba 5>Your files:', files)
     }).catch(err => {
         console.log('vezba 5: cannot read the directory')
     });
