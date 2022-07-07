@@ -91,53 +91,53 @@
 
 
 
-// const http = require('http');
-// const fs = require('fs');
-// const url = require('url');
+const http = require('http');
+const fs = require('fs');
+const url = require('url');
 
-// const fileRead = (filename) => {
-//     return new Promise((success, fail) => { // resolve, reject
-//         fs.readFile(filename, 'utf8', (err, data) => {
-//             if (err) {
-//                 return fail(err);
-//             }
-//             return success(data);
-//         });
-//     });
-// };
+const fileRead = (filename) => {
+    return new Promise((success, fail) => { // resolve, reject
+        fs.readFile(filename, 'utf8', (err, data) => {
+            if (err) {
+                return fail(err);
+            }
+            return success(data);
+        });
+    });
+};
 
-// const pages = {
-//     '/': async (req, res) => {
-//         const qs = url.parse(req.url, true).query;
+const pages = {
+    '/': async (req, res) => {
+        const qs = url.parse(req.url, true).query;
 
-//         console.log(qs);
+        console.log(qs);
 
-//         if (qs.op) console.log(qs.op);
-//         if (qs.a) console.log(qs.a);
-//         if (qs.b) console.log(qs.b);
+        if (qs.op) console.log(qs.op);
+        if (qs.a) console.log(qs.a);
+        if (qs.b) console.log(qs.b);
 
-//         let content = await fileRead('./index.html');
-//         res.end(content);
-//     },
-//     '/home' : (req, res) => {
-//         res.end('HOME2!');
-//     },
-//     '/users': (req, res) => {
-//         res.end('USERS!');
-//     }
-// };
+        let content = await fileRead('./index.html');
+        res.end(content);
+    },
+    '/home' : (req, res) => {
+        res.end('HOME2!');
+    },
+    '/users': (req, res) => {
+        res.end('USERS!');
+    }
+};
 
-// const server = http.createServer((req, res) => {
-//     // query string parameters // GET parameters
-//     // http://localhost:8080/users?a=10&b=5  
-//     // /users?a=10&b=5
-//     // /users                                     a=10&b=5
-//     let [path, _] = req.url.split('?');
-//     if (pages[path]) {
-//         pages[path](req, res);
-//     } else {
-//         res.end('');
-//     }
-// });
+const server = http.createServer((req, res) => {
+    // query string parameters // GET parameters
+    // http://localhost:8080/users?a=10&b=5  
+    // /users?a=10&b=5
+    // /users                                     a=10&b=5
+    let [path, _] = req.url.split('?');
+    if (pages[path]) {
+        pages[path](req, res);
+    } else {
+        res.end('');
+    }
+});
 
-// server.listen(10000);
+server.listen(10000);
