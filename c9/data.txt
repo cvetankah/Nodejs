@@ -1,0 +1,1 @@
+[{"ime":"Pero","prezime":"Perovski","prosek":9.2},{"ime":"Pero","prezime":"Perovski","prosek":9.2},{"ime":"Janko","prezime":"Jankovski","prosek":9.7},{"ime":"Janko","prezime":"Jankovski","prosek":9.7},{"ime":"Stanko","prezime":"Stankovski","prosek":8.7},{"ime":"Mite","prezime":"Mitevski","prosek":8.7},{"ime":"Mite","prezime":"Mitevski","prosek":8.7}]
