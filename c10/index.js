@@ -34,7 +34,38 @@ app.post('/formular-rezultat', (req, res) => {
     };
     res.render('formular_rezultat', data)
     // res.send(req.body)
-})
+});
+
+app.get('/calculator', (req, res) => {
+    res.render('calculator')
+});
+
+app.post('/calculator-rezultat', (req, res) => {
+    let data;
+    let operation;
+    // if(operation) {
+    //     res.render('calculator_rezultat', data)
+    // }
+    switch(operation) {
+    case '+': 
+        data = req.body.firstOperand + req.body.secondOperand
+        console.log(data);
+        break;
+    case '-':
+        data = req.body.firstOperand - req.body.secondOperand
+        console.log(data);
+        break;
+    case '/':
+        data = req.body.firstOperand / req.body.secondOperand
+        console.log(data);
+        break;
+    case '*':
+        data = req.body.firstOperand * req.body.secondOperand
+        console.log(data);
+        break;
+    }
+    res.render('calculator-rezultat', data)
+});
 
 app.listen(10000, err => {
     if(err) return console.log(err);
