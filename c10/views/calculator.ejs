@@ -7,24 +7,15 @@
 </head>
 <body>
     <form method="post" action="/calculator-rezultat">
-        <label>
-            <span>FIrstOperand</span>
-            <input type="number" name="broj1" placeholder="1" required>
-        </label>
-        <label for="Operation">
-            <select>
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="/">/</option>
-                <option value="*">*</option>
+            <input type="number" name="value_a" placeholder="Insert number" required>
+            <select name="operation">
+                <option value="plus">+</option>
+                <option value="minus">-</option>
+                <option value="delenje">/</option>
+                <option value="mnozenje">*</option>
             </select>
-        </label>
-        <label>
-            <span>SecondOperand</span>
-            <input type="number" name="broj2" placeholder="2" required>
-        </label>
-        <hr/>
-        <button onclick="" type="submit" >Испрати</button>
+            <input type="number" name="value_b" placeholder="Insert number" required>
+        <button type="submit" >Calculate!</button>
     </form>
 </body>
 </html>

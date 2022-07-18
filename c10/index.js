@@ -41,30 +41,29 @@ app.get('/calculator', (req, res) => {
 });
 
 app.post('/calculator-rezultat', (req, res) => {
-    let data;
-    let operation;
-    // if(operation) {
-    //     res.render('calculator_rezultat', data)
-    // }
-    switch(operation) {
-    case '+': 
-        data = req.body.firstOperand + req.body.secondOperand
-        console.log(data);
+    let result = 0;
+    console.log(req.body.operation); // ova e samo kolku da znaaes sto se desava vo operacijata
+
+    let op = req.body.operation;
+    let a = Number(req.body.value_a);
+    let b = Number(req.body.value_b)
+  
+    switch(op) {
+    case 'plus': 
+        result = a + b;
         break;
-    case '-':
-        data = req.body.firstOperand - req.body.secondOperand
-        console.log(data);
+    case 'minus':
+        result = a - b;
         break;
-    case '/':
-        data = req.body.firstOperand / req.body.secondOperand
-        console.log(data);
+    case 'delenje':
+        result = a / b;
         break;
-    case '*':
-        data = req.body.firstOperand * req.body.secondOperand
-        console.log(data);
+    case 'mnozenje':
+        result = a * b;
         break;
     }
-    res.render('calculator-rezultat', data)
+    console.log(result);
+    res.render('calculator-rezultat', {rezultat : result})
 });
 
 app.listen(10000, err => {
