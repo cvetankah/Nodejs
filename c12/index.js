@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionString = 'mongodb+srv://username:password@cluster0.qj0lf6h.mongodb.net/baza1?retryWrites=true&w=majority';
+const connectionString = 'mongodb+srv://cvetankah:cvetanka1992@cluster0.qj0lf6h.mongodb.net/baza1?retryWrites=true&w=majority';
 
 const connect = (connectionString) => {
     return new Promise((success, fail) => {
@@ -36,10 +36,10 @@ connect(connectionString)
         return s.save()
         .then(res => {
             console.log('SAVED!', res);
-            return Studenti.updateOne({_id: '62d6ef3a3af668760fb896da'}, {prezime: 'Petrovski'})
+            return Studenti.updateOne({_id: '62d7317e3af668760fb89700'}, {prezime: 'Petrovski'})
             .then(res => {
                 console.log('UPDATE FINISHED');
-                return Studenti.deleteOne({_id: '62d70ac81b3328e49605abc6'});
+                return Studenti.deleteOne({_id: '62d733c43af668760fb89702'});
             })
             .then(res => { // ova e za koga pravime kolekcija na podatoci
                 console.log('DELETED RECORD', res);
@@ -50,7 +50,11 @@ connect(connectionString)
                 return Studenti.find({prosek: {'$gte': 9} }, { prezime: 1, prosek: 1});
             })
             .then(res => {
-                console.log('FILTERED RESULTS 2', res)
+                console.log('FILTERED RESULTS 2', res);
+                return Studenti.deleteMany({ime: 'Ivann'});
+            })
+            .then(res => {
+                console.log('FILTERED RESULTS 3', res);
             })
     })
     })
